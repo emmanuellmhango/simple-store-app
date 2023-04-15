@@ -1,0 +1,38 @@
+.products-div {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 1rem;
+  margin: 5px;
+}
+
+.details {
+  font-size: 17px;
+}
+
+.product {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 176, 0, 0.6);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.product:hover {
+  border: 2px solid rgba(140, 192, 38, 0.8);
+  cursor: pointer;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.img {
+  width: 200px;
+  height: 200px;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+}
