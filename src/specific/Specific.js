@@ -61,7 +61,7 @@ function Specific() {
     dispatch(fetchSpecificProducts(id));
     const data = axios.get('https://fakestoreapi.com/products/categories');
     data.then((response) => setCategories(response.data));
-  }, []);
+  }, [dispatch, id]);
   return (
     <>
       <br />
