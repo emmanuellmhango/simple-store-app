@@ -19,14 +19,15 @@ const App = () => {
   };
   return (
     <div className="App">
-      <Header  isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
+      <Header isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Products />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/category/:id" element={<Specific />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login onLogin={handleLogin} />} />
+        <Route path="/login" element={<Login onLogin={handleLogin} />} />
       </Routes>
     </div>
   );
