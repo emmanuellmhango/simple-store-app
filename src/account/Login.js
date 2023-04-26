@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { NavLink } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
-// import { loginTrue } from './loginSlice';
+import { NavLink, useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './signup.css';
 
-function Login() {
-  // const dispatch = useDispatch();
+function Login({ onLogin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  // eslint-disable-next-line no-unused-vars
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-
+  const navigate = useNavigate();
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
   };
@@ -21,22 +17,19 @@ function Login() {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = { username, password };
-    axios
-      .post('https://fakestoreapi.com/auth/login', data)
+    axios.post('https://fakestoreapi.com/auth/login', {
+      username: username,
+      password: password,
+    })
       .then(() => {
-        window.location.href = '/';
+        onLogin();
+        alert('You have successfully logged in');
+        navigate('/products');
       })
       .catch((error) => {
-        // dispatch(loginTrue(true));
-        if (error.response) {
-          setIsLoggedIn(true);
-          window.location.href = '/';
-        } else {
-          alert(`Wrong login Details, please try again!${error}`);
-        }
+        alert(`There was an error logging in, please try again! { ${error} }`);
       });
   };
 
@@ -87,3 +80,7 @@ function Login() {
 }
 
 export default Login;
+
+Login.propTypes = {
+  onLogin: PropTypes.func.isRequired,
+};
