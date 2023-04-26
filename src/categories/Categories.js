@@ -10,7 +10,7 @@ function Categories() {
 
   useEffect(() => {
     dispatch(fetchCategories());
-  }, []);
+  }, [dispatch]);
   return (
     <>
       <br />
