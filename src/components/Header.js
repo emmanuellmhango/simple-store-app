@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import '../styles/style.css';
 
-const Header = ({isLoggedIn, handleLogout}) => (
+const Header = ({ isLoggedIn, handleLogout }) => (
   <>
     <nav className="nav">
       <div className="nav-wrapper">
@@ -14,20 +15,22 @@ const Header = ({isLoggedIn, handleLogout}) => (
         </div>
         <div className="links">
           <ul className="nav-list">
-          {!isLoggedIn ? (
+            {!isLoggedIn ? (
               <li className="nav-item">
                 <NavLink to="/login" className="link">Login</NavLink>
               </li>
-              ) : (
-              <li className="nav-item">
-                <NavLink to="/" className="link">Products</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink to="/cart" className="link">My Cart</NavLink>
-              </li>
-              <li className="nav-item">
+            ) : (
+              <>
+                <li className="nav-item">
+                  <NavLink to="/products" className="link">Products</NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink to="/cart" className="link">My Cart</NavLink>
+                </li>
+                <li className="nav-item">
                   <NavLink to="/" onClick={handleLogout} className="link">Signout</NavLink>
-              </li>
+                </li>
+              </>
             )}
           </ul>
         </div>
@@ -42,3 +45,8 @@ const Header = ({isLoggedIn, handleLogout}) => (
 );
 
 export default Header;
+
+Header.propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired,
+  handleLogout: PropTypes.func.isRequired,
+};
