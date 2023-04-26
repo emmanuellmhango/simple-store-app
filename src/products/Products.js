@@ -61,7 +61,7 @@ function Products() {
     dispatch(fetchProducts());
     const data = axios.get('https://fakestoreapi.com/products/categories');
     data.then((response) => setCategories(response.data));
-  }, []);
+  }, [dispatch]);
   return (
     <>
       <br />
