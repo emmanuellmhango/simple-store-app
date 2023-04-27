@@ -23,7 +23,7 @@ function Signup() {
       .then(() => {
         // eslint-disable-next-line no-alert
         alert('User created successfully! Please log in.');
-        window.location.href = '/login';
+        window.location.href = '/';
       })
       .catch(() => {
         // eslint-disable-next-line no-alert
