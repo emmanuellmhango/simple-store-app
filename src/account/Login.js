@@ -19,6 +19,7 @@ function Login({ onLogin }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    /* eslint-disable */
     axios.post('https://fakestoreapi.com/auth/login', {
       username: username,
       password: password,
@@ -31,6 +32,7 @@ function Login({ onLogin }) {
       .catch((error) => {
         alert(`There was an error logging in, please try again! { ${error} }`);
       });
+    /* eslint-enable */
   };
 
   return (
