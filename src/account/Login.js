@@ -30,6 +30,7 @@ function Login({ onLogin }) {
         navigate('/products');
       })
       .catch((error) => {
+        console.log(error);
         alert(`There was an error logging in, please try again! { ${error} }`);
       });
     /* eslint-enable */
