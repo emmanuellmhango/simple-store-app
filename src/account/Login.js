@@ -21,8 +21,8 @@ function Login({ onLogin }) {
     e.preventDefault();
     /* eslint-disable */
     axios.post('https://fakestoreapi.com/auth/login', {
-      username: username,
-      password: password
+      username: "mor_2314",
+      password: "83r5^_"
     })
       .then(() => {
         onLogin();
